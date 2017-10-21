@@ -4,6 +4,12 @@ import edu.princeton.cs.algs4.StdOut;
 
 public class UnionFindQuickFind {
 	public static final String INDENT = "               ";
+	public static final StringBuffer state2str(int[] state) {
+		StringBuffer str = new StringBuffer();
+		for (int i = 0; i < state.length; i++)
+			str.append(" " + state[i]);
+		return str;
+	}
 	private int[] id;
 
 	public UnionFindQuickFind(int N) {
@@ -16,36 +22,33 @@ public class UnionFindQuickFind {
 	public static void main(String[] args) {
 		int N = StdIn.readInt();
 		UnionFindQuickFind uf = new UnionFindQuickFind(N);
-		uf.printId();
+		uf.printState();
 		while (!StdIn.isEmpty())
 		{
 			int p = StdIn.readInt();
 			int q = StdIn.readInt();
-			StdOut.println(INDENT + "> " + p + " " + q);
+			StdOut.println(INDENT + "$ " + p + " " + q);
 			if (!uf.connected(p, q))
 			{
+				StdOut.println("union " + p + " " + q);
 				uf.union(p, q);
-				StdOut.println("connect " + p + " " + q);
 			}
 			else
 			{
 				StdOut.println(INDENT + p + " " + q + " are already connected");
 			}
-			uf.printId();
+			uf.printState();
 		}
 	}
 
-	private void printId() {
-		StringBuffer str = new StringBuffer();
-		for (int i = 0; i < id.length; i++)
-			str.append(" " + id[i]);
-		StdOut.println(INDENT + str);
+	private void printState() {
+		StdOut.println(INDENT + "id[]   " + state2str(id));
 	}
 
 	private void union(int p, int q) {
 		int idp = id[p];
 		int idq = id[q];
-		StdOut.println(INDENT + "union, lookup N times");
+		StdOut.println(INDENT + "lookup root N times");
 		for (int i = 0; i < id.length; i++)
 			if (id[i] == idp)
 				id[i] = idq;
