@@ -7,7 +7,7 @@
 
 ## Run in command line
 ```shell
-java -cp ./algs4.jar:./bin UnionFindQuick < input.txt
+java -cp ./algs4.jar:./bin UnionFindQuickFind < input.txt
 ```
 ## Example output with my own style of logging
 ```

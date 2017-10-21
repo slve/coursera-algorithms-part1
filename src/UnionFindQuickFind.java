@@ -2,11 +2,11 @@ import edu.princeton.cs.algs4.StdIn;
 import edu.princeton.cs.algs4.StdOut;
 
 
-public class UnionFindQuick {
+public class UnionFindQuickFind {
 	public static final String INDENT = "               ";
 	private int[] id;
 
-	public UnionFindQuick(int N) {
+	public UnionFindQuickFind(int N) {
 		StdOut.println(INDENT + "initializing id, N operaton");
 		id = new int[N];
 		for (int i = 0; i < N; i++)
@@ -15,7 +15,7 @@ public class UnionFindQuick {
 
 	public static void main(String[] args) {
 		int N = StdIn.readInt();
-		UnionFindQuick uf = new UnionFindQuick(N);
+		UnionFindQuickFind uf = new UnionFindQuickFind(N);
 		uf.printId();
 		while (!StdIn.isEmpty())
 		{
